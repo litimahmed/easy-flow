@@ -17,7 +17,8 @@ export const termsAndConditionsService = {
       throw new Error("Failed to fetch terms and conditions");
     }
     
-    const data = await response.json();
+    const result = await response.json();
+    const data = result.data || result;
     return Array.isArray(data) ? data : [data];
   },
 
