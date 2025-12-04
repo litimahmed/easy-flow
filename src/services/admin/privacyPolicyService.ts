@@ -17,7 +17,8 @@ export const privacyPolicyService = {
       throw new Error("Failed to fetch privacy policies");
     }
     
-    const data = await response.json();
+    const result = await response.json();
+    const data = result.data || result;
     return Array.isArray(data) ? data : [data];
   },
 
